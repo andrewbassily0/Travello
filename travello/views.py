@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from .models import Destination
-# Create your views here.
+from django.conf import settings
+from django.conf.urls.static import static
+from news.models import News
 
 def index(request):
     dest=Destination.objects.all()
+    new=News.objects.all()
     
-    return render(request, 'index.html' ,  {'dest': dest})
+    return render(request, 'index.html' ,  {'dest': dest ,'new':new})
 
